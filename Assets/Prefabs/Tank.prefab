@@ -277,8 +277,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PayerNumber: 1
-  m_Bullet: {fileID: 6216799583435509097, guid: c6745f4da38d39144b3b1e5f9fd73ed1, type: 3}
+  m_Bullet: {fileID: 1873034395706334230, guid: c6745f4da38d39144b3b1e5f9fd73ed1, type: 3}
   m_FireTransform: {fileID: 2344685959171190106}
+  m_ShootCD: 1
 --- !u!54 &8611086912330735049
 Rigidbody:
   m_ObjectHideFlags: 0

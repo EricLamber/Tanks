@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Complete
@@ -10,14 +9,17 @@ namespace Complete
         [SerializeField] float m_HitboxRadius = 0.2f;
         [SerializeField] float m_BulletSpeed = 2f;
 
-        private string m_WallTag;
+        private string m_WallTag = "Wall";
 
-        private void Start() =>
-            m_WallTag = "Wall";
+        bool isActive = false;
 
+        private void OnEnable() => isActive = true;
+        private void OnDisable() => isActive = false;
+        
         private void FixedUpdate()
         {
-            transform.Translate(m_BulletSpeed * Time.deltaTime * Vector3.forward);
+            if(isActive)
+                transform.Translate(m_BulletSpeed * Time.deltaTime * Vector3.forward);
         }
 
 
@@ -57,7 +59,7 @@ namespace Complete
                 targetHealth.TakeDamage(damage);
             }
 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
